@@ -39,11 +39,11 @@ showFrame(0);
 
 // Dashboard tour.
 const TEXT = {
-  home: 'Your next move, front and center: the most urgent thing with a live countdown, how much of today is done, and the widgets you choose. Drag them into any order.',
+  home: 'Your next move, front and center, with a live countdown. Around it, widgets in Apple-style sizes that snap into place when you drag them. Only the services you’ve connected show up.',
   tasks: 'Every task from every source in one Reminders-style list. Sorted by priority and due date, color dots instead of exclamation marks. Type “Essay draft fri 11pm” and Orbit sets the date.',
   school: 'Canvas assignments, missing work, recent grades and teacher announcements, per course. Sign in with your school login, two-factor included.',
   calendar: 'A month view with your events and due dates together, and an agenda of what’s coming up. Works with Google, Outlook, iCloud and any iCal link.',
-  inbox: 'Unread mail from all your accounts in one list, sender and subject only. Click to open it in your own mail app.',
+  inbox: 'Texts, email, events and tasks in one list, ranked by what needs you now, with the reason for each. Click one to open it in Messages or your own mail app.',
   controls: 'Pick a wallpaper, upload your own, pause the motion, dim at night, run a 25-minute focus timer and launch your favorite apps.',
   connect: 'Add the accounts you want in a couple of clicks. Each one syncs on its own schedule and shows its status, so you always know what’s current.',
 };
@@ -51,9 +51,9 @@ const shot = document.getElementById('shot'), text = document.getElementById('ta
 function tab(name) {
   document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.shot === name));
   shot.style.opacity = 0;
-  setTimeout(() => { shot.src = `img/panel-${name}.png`; shot.alt = `Orbit dashboard, ${name} tab`; shot.onload = () => { shot.style.opacity = 1; }; }, 150);
+  setTimeout(() => { shot.src = `img/panel-${name}.webp`; shot.alt = `Orbit dashboard, ${name} tab`; shot.onload = () => { shot.style.opacity = 1; }; }, 150);
   text.textContent = TEXT[name];
 }
 document.querySelectorAll('#tabs button').forEach(b => b.addEventListener('click', () => tab(b.dataset.shot)));
 text.textContent = TEXT.home;
-['tasks', 'school', 'calendar', 'inbox', 'controls', 'connect'].forEach(n => { const i = new Image(); i.src = `img/panel-${n}.png`; });
+['tasks', 'school', 'calendar', 'inbox', 'controls', 'connect'].forEach(n => { const i = new Image(); i.src = `img/panel-${n}.webp`; });
